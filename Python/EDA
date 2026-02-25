@@ -1,0 +1,42 @@
+#DATA CLEANING 
+
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("Hospital ER_Data.csv")
+df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
+df['patient_admission_date'] = pd.to_datetime(df['patient_admission_date'], errors='coerce')
+df = df.drop_duplicates()
+print("Missing Values")
+print(df.isnull().sum())
+
+#FEATURE ENGINEERING
+
+df['within_30_mins'] = np.where(df['patient_waittime'] <= 30, 1, 0)
+df['wait_time_bucket'] = pd.cut(
+    df['patient_waittime'],
+    bins=[0, 15, 30, 60, 120, np.inf],
+    labels=["0-15", "15-30", "30-60", "60-120", "120+"])
+df['visit_hour'] = df['patient_admission_date'].dt.hour
+df['visit_month'] = df['patient_admission_date'].dt.month
+df['age_group'] = pd.cut(
+    df['patient_age'],
+    bins=[0, 18, 30, 45, 60, 75, 100],
+    labels=["0-18", "19-30", "31-45", "46-60", "61-75", "75+"])
+
+#EXPLORATORY DATA ANALYSIS
+
+total_patients = len(df)
+avg_wait_time = df['patient_waittime'].mean()
+avg_satisfaction = df['patient_satisfaction_score'].mean()
+compliance_rate = df['within_30_mins'].mean() * 100
+print("Total Patients:", total_patients)
+print("Average Wait Time:", round(avg_wait_time, 2))
+print("Average Satisfaction Score:", round(avg_satisfaction, 2))
+print("30 Minute Compliance Rate:", round(compliance_rate, 2))
+hourly_counts = df['visit_hour'].value_counts().sort_index()
+print("Hourly Patient Distribution")
+print(hourly_counts)
+age_distribution = df['age_group'].value_counts()
+print("Age Group Distribution")
+print(age_distribution)
