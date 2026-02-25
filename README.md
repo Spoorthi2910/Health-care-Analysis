@@ -1,106 +1,14 @@
 # Health-care-Analysis
-Project Overview
+This project analyzes Emergency Room patient data to evaluate operational performance and service efficiency within a hospital setting. The objective was to monitor key healthcare KPIs, identify delays in patient handling, and generate data-driven insights that can support better staffing decisions and resource allocation. The workflow combines Python for data cleaning and exploratory analysis with Power BI for interactive dashboard development and business reporting.
 
-This project analyzes Emergency Room patient data to evaluate operational performance and patient service efficiency. The objective was to monitor key healthcare KPIs, identify service delays, and provide data-driven insights to support better staffing and resource planning decisions.
+The dataset consists of 9,216 emergency room patient records containing information such as admission date and time, patient demographics including age, gender, and race, department referral details, admission status, wait time, and patient satisfaction score. The data was first processed in Python using Pandas and NumPy to ensure consistency and reliability before visualization.
 
-The analysis was performed using Python for data cleaning and exploratory data analysis, followed by Power BI for interactive dashboard development.
+During the data preparation phase, column names were standardized, date fields were converted into proper datetime format, and duplicate records were removed. Missing values were assessed to understand data completeness. Additional derived features were created, including a 30-minute service compliance flag, wait time categories, visit hour and month extraction, and age group segmentation. These transformations ensured accurate KPI calculation and structured analysis.
 
-Dataset Description
+Exploratory data analysis was conducted to understand overall patient flow and operational trends. Key metrics such as total patient volume, average wait time, average satisfaction score, and 30-minute compliance rate were calculated. Hourly patient distribution analysis helped identify peak congestion periods, while demographic segmentation provided insight into high-volume age groups and patient patterns.
 
-The dataset contains 9,216 emergency room patient records with details such as:
+An interactive dashboard was then developed in Power BI to present key findings in a structured and decision-friendly format. The dashboard tracks patient volume, average wait time, satisfaction score, service-level compliance, department referral trends, and time-based inflow patterns. Drill-down capabilities allow analysis by age group, gender, race, and department to support detailed operational evaluation.
 
-Patient admission date and time
+The analysis revealed that a notable percentage of patients were not attended within the 30-minute benchmark, indicating potential service bottlenecks. Specific weekdays and hours showed higher patient traffic, highlighting areas where staffing optimization may be required. Referral patterns also provided visibility into departmental workload distribution.
 
-Patient age, gender, and race
-
-Department referral
-
-Admission status
-
-Patient wait time
-
-Patient satisfaction score
-
-Tools and Technologies
-
-Python (Pandas, NumPy) for data cleaning and exploratory data analysis
-
-Power BI for data visualization and dashboard development
-
-Data Cleaning and Preparation (Python)
-
-The dataset was preprocessed using Python to ensure accurate analysis:
-
-Standardized column names for consistency
-
-Converted admission date column to datetime format
-
-Removed duplicate records
-
-Checked and evaluated missing values
-
-Created derived features such as:
-
-30-minute service compliance flag
-
-Wait time categories
-
-Visit hour and month
-
-Age group segmentation
-
-Exploratory Data Analysis
-
-Basic EDA was performed to understand patient flow and operational trends:
-
-Calculated total patient volume
-
-Computed average wait time
-
-Measured average patient satisfaction score
-
-Evaluated 30-minute service-level compliance
-
-Analyzed hourly patient distribution
-
-Segmented patients by age groups
-
-Dashboard Development (Power BI)
-
-An interactive dashboard was built in Power BI to monitor key performance indicators:
-
-Total patient volume
-
-Average wait time
-
-Patient satisfaction score
-
-30-minute service compliance rate
-
-Department referral trends
-
-Hourly and weekday patient inflow analysis
-
-Demographic segmentation by age, gender, and race
-
-Key Insights
-
-A significant percentage of patients were not attended within 30 minutes, indicating operational bottlenecks.
-
-Certain hours and weekdays experienced higher patient congestion.
-
-Department referral patterns highlighted service dependency areas.
-
-Demographic segmentation helped identify high-volume patient groups.
-
-Business Impact
-
-The project enables hospital management to:
-
-Monitor emergency room performance using clear KPIs
-
-Identify peak congestion periods
-
-Optimize staffing allocation
-
-Improve patient experience and operational efficiency
+Overall, this project demonstrates an end-to-end analytics workflow involving data cleaning, feature engineering, exploratory analysis, KPI monitoring, and business visualization. It reflects the ability to transform raw healthcare data into actionable insights that can support operational improvements and enhance patient service quality.
